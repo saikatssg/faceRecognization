@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PayrollPro - Simplify Your Payroll</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#1e3a8a",
+                      "on-tertiary-fixed-variant": "#38485d",
+                      "inverse-on-surface": "#eff1f3",
+                      "primary-fixed": "#dce1ff",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "secondary-fixed-dim": "#6bd8cb",
+                      "on-tertiary-fixed": "#0b1c30",
+                      "inverse-primary": "#b6c4ff",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#e0e3e5",
+                      "secondary": "#006a61",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-secondary": "#ffffff",
+                      "inverse-surface": "#2d3133",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-container": "#eceef0",
+                      "primary": "#00236f",
+                      "secondary-container": "#86f2e4",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-container": "#006f66",
+                      "on-surface-variant": "#444651",
+                      "tertiary-fixed-dim": "#b7c8e1",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f2f4f6",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#c5c5d3",
+                      "on-primary-fixed": "#00164e",
+                      "surface": "#f7f9fb",
+                      "surface-bright": "#f7f9fb",
+                      "on-primary-container": "#90a8ff",
+                      "outline": "#757682",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#191c1e",
+                      "on-background": "#191c1e",
+                      "on-primary-fixed-variant": "#264191",
+                      "on-tertiary-container": "#9dadc6",
+                      "secondary-fixed": "#89f5e7",
+                      "on-secondary-fixed-variant": "#005049",
+                      "background": "#f7f9fb",
+                      "surface-tint": "#4059aa",
+                      "tertiary": "#1b2b3f",
+                      "tertiary-container": "#314156",
+                      "tertiary-fixed": "#d3e4fe",
+                      "on-secondary-fixed": "#00201d",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "stack-lg": "24px",
+                      "stack-md": "16px",
+                      "sidebar-width": "260px",
+                      "margin-desktop": "32px",
+                      "container-max": "1440px",
+                      "stack-sm": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "tabular-nums": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "tabular-nums": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">
+                PayrollPro
+            </div>
+<div class="hidden md:flex items-center gap-gutter font-label-md text-label-md">
+<a class="text-primary dark:text-inverse-primary border-b-2 border-primary hover:text-primary dark:hover:text-inverse-primary transition-colors py-5 active:opacity-80" href="#">Features</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors py-5 active:opacity-80" href="#">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors py-5 active:opacity-80" href="#">Contact</a>
+</div>
+<div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded active:opacity-80 transition-opacity hover:bg-primary-container">
+                    Login
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col">
+<!-- Hero Section -->
+<section class="relative bg-surface-container-lowest py-24 md:py-32 px-margin-mobile md:px-margin-desktop border-b border-outline-variant/30 overflow-hidden">
+<!-- Decorative Background Element -->
+<div class="absolute inset-0 pointer-events-none opacity-5">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 -left-32 w-80 h-80 bg-secondary rounded-full blur-3xl"></div>
+</div>
+<div class="max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
+<!-- Left Column (Text & CTAs) -->
+<div class="flex-1 flex flex-col items-start text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full text-primary font-label-md text-label-md mb-stack-lg border border-outline-variant/50">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+            Enterprise Grade Software
+        </div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-stack-md max-w-2xl tracking-tight">
+            Simplify Your Payroll <br class="hidden md:block"/> with Precision.
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-stack-lg">
+            A robust Django &amp; MySQL powered solution designed for modern enterprises. Streamline compliance, automate calculations, and empower your workforce with secure, scalable architecture.
+        </p>
+<div class="flex flex-col sm:flex-row gap-stack-md mt-stack-md">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-lg hover:shadow-md transition-all hover:-translate-y-0.5 active:translate-y-0">
+                Get Started
+            </button>
+<button class="bg-surface border border-outline text-primary font-label-md text-label-md px-8 py-3 rounded-lg hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
+                View Documentation
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right Column (Carousel) -->
+<div class="flex-1 w-full relative rounded-xl shadow-lg h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden group border border-outline-variant/30">
+<div class="relative w-full h-full bg-surface-variant" id="hero-carousel">
+<img alt="Dashboard" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTnoPbSV087Z0seSvySoTzGLSZlSBVbfsK-eHVOYj94pswHWpWmeRj8h9lF0Wb9IKg-Qq-QEG3DGGHni5sbyovawSGmFrRBVSqYB-EvIkh5Q1sRien2KOOQBudoPF1SB1U2m1352c9Jc_IYXoZA4Hd_0Jhl6kDyZu8U8y6WYjUvBitSOU64P8u3wfg46c7ctd-YqjDWUF3YzZ0KKQzLrU0BOJ74QAFSEms-M_ORJTyKQ8J4MZVfyimd_kXaKpHS76KzmFljJqDIw"/>
+<img alt="Team" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaAYpP_bhfRmyAoxZ8KBCE8CwvcqFKLZ1AkPZ0tDn8LVAniUKlVc6e93n7iWvoREX_E96Bw_bPta4SpbOEUGkpCG152ggsDr8WQ5JIBcj_aCalP0_SIyGLPQi_6mJEngcN8or8TyqzeHFxt61Sz4J1exEJ4icY5x9cMQLU5K72kg0Vf3NY2UpMyrKsELnU4iKQ8HgdXSWcyEo2U2kIoEhId5gMBDXOi92NTX7_9ZKGJn9IjG-bvFOM55g38rU3SoNzButAR5jDVA"/>
+<img alt="Security" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWxuAJL_KQ-CCe6eMU-qG88tdifkCkW10XWcmddhsICFeuMQ3H-DNwBMeFM92dLttt6WO0clP35XFHGInC4jWbPGsOBv_4jcwQ4riRwzDRaDSu9MZ_1zb2PJud_XPzb5gW04IDuOLy3uHvzxxlMtHIR743TSs-86RqExZu1P3cdBpzTZOC47aKDGG-wjYuuHf3mxAT5BvyS0PSb8G_t4pkVoE7Ruxfv8tVzKRphdLfUarJsetPd2cZFnVQx5stGfdsEtTBZiNCrA"/>
+</div>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+<button aria-label="Go to slide 1" class="w-3 h-3 rounded-full bg-primary transition-colors focus:outline-none" data-slide="0"></button>
+<button aria-label="Go to slide 2" class="w-3 h-3 rounded-full bg-outline-variant hover:bg-primary/50 transition-colors focus:outline-none" data-slide="1"></button>
+<button aria-label="Go to slide 3" class="w-3 h-3 rounded-full bg-outline-variant hover:bg-primary/50 transition-colors focus:outline-none" data-slide="2"></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface max-w-container-max mx-auto w-full">
+<div class="mb-16 text-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">Core Capabilities</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Engineered for data density and administrative efficiency.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Feature 1: Large Span -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-shadow flex flex-col justify-between overflow-hidden relative group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-primary icon-fill">calculate</span>
+</div>
+<div class="relative z-10 mb-stack-lg">
+<div class="w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary mb-stack-md">
+<span class="material-symbols-outlined">functions</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Automated Calculations</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                            Complex tax brackets, deductions, and overtime rules are handled seamlessly by our proprietary Django rules engine. Reduce manual errors to zero.
+                        </p>
+</div>
+<div class="relative z-10 mt-auto border-t border-outline-variant/50 pt-stack-md flex justify-between items-center text-primary font-label-md text-label-md">
+<span>Explore tax modules</span>
+<span class="material-symbols-outlined">arrow_right_alt</span>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="col-span-1 bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-shadow flex flex-col justify-between">
+<div class="mb-stack-lg">
+<div class="w-12 h-12 rounded bg-secondary/10 flex items-center justify-center text-secondary mb-stack-md">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Secure MySQL Storage</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Enterprise-grade data integrity with strict ACID compliance and automated encrypted backups.
+                        </p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="col-span-1 bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-shadow flex flex-col justify-between">
+<div class="mb-stack-lg">
+<div class="w-12 h-12 rounded bg-tertiary-container flex items-center justify-center text-on-tertiary-container mb-stack-md">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Exportable Reports</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Generate granular financial reports in CSV, PDF, or Excel formats for seamless accounting integration.
+                        </p>
+</div>
+</div>
+<!-- Feature 4: Span 2 -->
+<div class="col-span-1 md:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-shadow flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10 mb-stack-lg flex flex-col md:flex-row gap-stack-lg items-start md:items-center">
+<div class="flex-shrink-0">
+<div class="w-12 h-12 rounded bg-primary-container flex items-center justify-center text-on-primary-container mb-stack-md">
+<span class="material-symbols-outlined">person</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Employee Self-Service</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                                Empower staff with a dedicated portal to view paystubs, update W-4s, and manage direct deposits securely.
+                            </p>
+</div>
+<!-- Mini UI Mockup inside card -->
+<div class="flex-grow w-full bg-surface-container border border-outline-variant/50 rounded-lg p-4 shadow-sm hidden md:block">
+<div class="flex justify-between items-center border-b border-outline-variant/50 pb-2 mb-2">
+<span class="font-label-md text-label-md text-on-surface">Recent Paystubs</span>
+<span class="material-symbols-outlined text-outline text-[16px]">download</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-body-md font-body-md">
+<span class="text-on-surface-variant">Oct 15, 2024</span>
+<span class="font-tabular-nums text-on-surface font-medium">$3,240.50</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md opacity-70">
+<span class="text-on-surface-variant">Sep 30, 2024</span>
+<span class="font-tabular-nums text-on-surface font-medium">$3,240.50</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline full-width mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-desktop max-w-container-max mx-auto w-full gap-stack-md">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary opacity-100">
+                PayrollPro
+            </div>
+<div class="flex flex-wrap justify-center gap-gutter font-body-md text-body-md text-on-surface-variant dark:text-surface-variant opacity-100">
+<a class="hover:underline hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:underline hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:underline hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Security</a>
+<a class="hover:underline hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Help Center</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant text-center md:text-right opacity-100">
+                © 2024 PayrollPro Enterprise Systems. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const carousel = document.getElementById('hero-carousel');
+        if (!carousel) return;
+        
+        const slides = carousel.querySelectorAll('img');
+        const dots = document.querySelectorAll('[data-slide]');
+        let currentSlide = 0;
+        let interval;
+
+        function showSlide(index) {
+            slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
+            dots[currentSlide].classList.replace('bg-primary', 'bg-outline-variant');
+            
+            currentSlide = index;
+            
+            slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
+            dots[currentSlide].classList.replace('bg-outline-variant', 'bg-primary');
+        }
+
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slides.length);
+        }
+
+        function startAutoSlide() {
+            interval = setInterval(nextSlide, 5000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(interval);
+            startAutoSlide();
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                resetAutoSlide();
+            });
+        });
+
+        startAutoSlide();
+    });
+</script>
+</body></html>
