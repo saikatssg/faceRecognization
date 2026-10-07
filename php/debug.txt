@@ -1,0 +1,6 @@
+Command: python "C:\xampp\htdocs\employee\php\recognize.py" "C:\xampp\htdocs\employee\others\uploads\card2.jpg" "C:\xampp\htdocs\employee\php\temp_capture_1785159494.jpg" 2>&1
+Output: Traceback (most recent call last):
+  File "C:\xampp\htdocs\employee\php\recognize.py", line 2, in <module>
+    import face_recognition
+ModuleNotFoundError: No module named 'face_recognition'
+

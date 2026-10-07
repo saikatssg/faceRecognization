@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* nav */
+
+body{
+    
+     scrollbar-width:0
+}
+
+ ::-webkit-scrollbar{
+    display: none;
+ }
+
+.navbar{
+    /* background: linear-gradient(90deg,rgba(12,12,12,0.8),rgba(20,20,20,0.7),transparent) !important; */
+    background: linear-gradient(-225deg, #a31967 0%, #562B7C 52%, #155684 100%) !important;
+    
+    background-attachment: fixed;
+
+
+}
+
+nav ul{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    
+}
+
+/* end of nav */
+
+/* header */
+header{
+    height: 100dvh;
+    width: 100%;
+    background: linear-gradient(rgba(30, 30, 30, 0.319),rgba(18, 18, 18, 0.349)), url("../images/header.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-clip: border-box;
+    /* clip-path:polygon(0% 0%,100% 0%, 100% 100%,0% 80%); */
+}
+
+.header_title{
+    
+    width: 35%;
+    padding: 2rem;
+    margin-left: 10rem;
+    color: #efefef;
+}
+
+.header_title h1{
+    font-size: 4rem;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.header_title p{
+    font-size: 1.1rem;
+    line-height: 2.2rem;
+}
+
+.header_title a{
+    margin: 1.5rem 0;
+    display: inline-block;
+    border: 1px solid #efefef;
+    padding: 1rem 2.3rem;
+    margin-top: 2rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: 'Open Sans',sans-serif;
+    border-radius: 0.25rem;
+    color:#efefef;
+    transition: all 0.5s;
+}
+
+.header_title a:hover{
+    background-color: #efefef;
+    color:#121212;
+}
+
+/* end of header */
+
+/* about */
+
+.about{
+    height: 100dvh;
+    
+    width: 55%;
+    text-align: center;
+}
+
+.about-title{
+  
+    height: auto;
+}
+
+.about-title h1{
+    width: 50%;
+    height: 15dvh;
+    margin: 2rem auto;
+    font-size: 3rem;
+    font-weight: 200;
+    font-family: 'Baloo Da 2',system-ui,  'Segoe UI', 'Open Sans', sans-serif;
+}
+
+.about-title p{
+    width: 65%;
+    text-align: center;
+    margin: 1rem auto;
+    color: #656565;
+}
+
+.about-item{
+    width: 100%;
+    height: 60dvh;
+}
+
+.about-item .left,
+.about-item .right{
+    width: 50%;
+    height: auto;
+    margin: 1rem 3rem;
+    
+}
+
+.imgPrev{
+    height: 35dvh;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 1.5s ease-in 0.3s;
+    transform: perspective(50rem) rotateY(0deg);
+}
+
+.about-item .left .imgPrev:hover{
+    transform: perspective(20rem) rotateY(20deg);
+}
+
+.about-item .right .imgPrev:hover{
+    transform: perspective(20rem) rotateY(-20deg);
+}
+
+.about-item .left  .imgPrev img,
+.about-item .right .imgPrev  img{
+    width: 150%;
+    height: 150%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 1.5s ease-in 0.3s;
+    filter: grayscale(90%);
+}
+
+.about-item .left:hover img ,
+.about-item .right:hover img{
+      width:  100%;
+      height: 100%;
+      filter: grayscale(0%);
+}
+
+.about-item .left a,.about-item .right a{
+    color:#121221 !important;
+    border: 1px solid #181818;
+    padding: 0.7rem 2rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Open Sans',sans-serif;
+    border-radius: 0.3rem;
+    color:#efefef;
+    transition: all 0.5s;
+}
+
+.about-item .left a:hover,.about-item .right a:hover{
+    background-color: #121212;
+    color: #efefef !important;
+}
+
+
+
+/* end of about */
