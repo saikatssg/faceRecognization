@@ -1,0 +1,115 @@
+-- 1. Create and select the database
+CREATE DATABASE IF NOT EXISTS employee_payroll_db;
+USE emp_payroll_db;
+
+-- 2. Create the departments table (Parent table for designations)
+CREATE TABLE departments (
+    dept_id VARCHAR(30) PRIMARY KEY,
+    dept  INT (11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE `dept_master` (
+  `dept` int(11) NOT NULL,
+  `dept_name` varchar(50) NOT NULL,
+  `abbr` varchar(30) NOT NULL,
+  `flag` int(11) NOT NULL,
+  `created_on` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 3. Create the designations table (Child of departments, Parent of employees)
+CREATE TABLE designations (
+    desig_id INT(11) PRIMARY KEY,
+    dept_id VARCHAR(30),
+    
+    basic_salary DECIMAL(10,2) NOT NULL,
+    da DECIMAL(10,2) NOT NULL,
+    hra DECIMAL(10,2) NOT NULL,
+    ta DECIMAL(10,2) NOT NULL,
+    pf DECIMAL(10,2) NOT NULL,
+    ptax DECIMAL(10,2) NOT NULL,
+    net_salary DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id) 
+        ON DELETE SET NULL 
+        ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE designation_master(
+desig_id INT(11),
+design_name VARCHAR(50),
+design_abbr VARCHAR(20),
+active_post INT(5) DEFAULT 1,
+design_create_on date NOT NULL DEFAULT current_timestamp()
+)
+-- 4. Create the employees table (Child of designations, Parent of attendance & payroll)
+CREATE TABLE employees (
+    emp_id VARCHAR(50) PRIMARY KEY,
+    desig_id INT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    join_date DATE NOT NULL,
+	dob  DATE NOT NULL,
+	mobile VARCHAR(10) NOT NULL,
+	gender INT DEFAULT 0,
+	city VARCHAR(30),
+	photo VARCHAR(225),
+	created_on data NOT NULL DEFAULT current_timestamp(), 
+    FOREIGN KEY (desig_id) REFERENCES designations(desig_id) 
+        ON DELETE SET NULL 
+        ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 5. Create the attendance table (Child of employees)
+CREATE TABLE attendance (
+    att_id INT AUTO_INCREMENT PRIMARY KEY,
+    emp_id VARCHAR(50) NOT NULL,
+    att_date DATE NOT NULL,
+    status ENUM('Present', 'Absent', 'Leave', 'Half') NOT NULL,
+    FOREIGN KEY (emp_id) REFERENCES employees(emp_id) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 6. Create the payroll table (Child of employees)
+CREATE TABLE payroll (
+    payroll_id VARCHAR(50) PRIMARY KEY,
+    emp_id VARCHAR(50) NOT NULL,
+    pay_month VARCHAR(20) NOT NULL, -- e.g., 'October 2026'
+    allowances DECIMAL(10,2) DEFAULT 0.00,
+    deductions DECIMAL(10,2) DEFAULT 0.00,
+    net_salary DECIMAL(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (emp_id) REFERENCES employees(emp_id) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `gender_master` (
+  `gid` int(11) NOT NULL,
+  `gname` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+INSERT INTO `gender_master` (`gid`, `gname`) VALUES
+(1, 'Male'),
+(2, 'Female'),
+(3, 'Others');
+
+
+INSERT INTO `dept_master` (`desig_id`, `design_name`, `design_abbr`, `active_post`, `created_on`) VALUES
+(1, 'Information Technology', 'IT', 1, '2026-07-27'),
+(2, 'Human Resources', 'HR', 1, '2026-07-27'),
+(3, 'Research and Development', 'R&D', 1, '2026-07-27'),
+(4, 'Finance and Accounting', 'F&A', 1, '2026-07-27'),
+(5, 'Sales and Marketing', 'S&M', 1, '2026-07-27'),
+(6, 'Customer Support', 'CST', 1, '2026-07-27'),
+(7, ' Quality Assurance', 'QA', 1, '2026-07-27'),
+(8, 'Operations and Logistics', 'O&L', 1, '2026-07-27'),
+(9, 'Legal and Compliance', 'L&C', 1, '2026-07-27'),
+(10, 'Product Management', 'PM', 1, '2026-07-27'),
+(10, 'Administrator', 'Admin', 1, '2026-07-27');
+

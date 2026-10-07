@@ -1,0 +1,218 @@
+/* css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #88256b;
+    --primary-hover: #6e1c55;
+    --secondary-hover: rgb(1, 80, 60);
+    --secondary-color: #2c3e50;
+    --bg-color: #f8f9fc;
+    --text-color: #333;
+    --border-color: #e3e6f0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Public Navbar */
+.navbar-public {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-hover)) !important;
+    background-attachment: fixed;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-public .navbar-brand {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+.navbar-public .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.9rem;
+}
+
+.navbar-public .nav-link:hover {
+    color: #fff !important;
+}
+
+/* Minimalist Form Styles (Login & Signup) */
+.minimal-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: transparent;
+}
+
+.minimal-form .form-control,
+.minimal-form .form-select {
+    border: none;
+    border-bottom: 1px solid #c8a2c8;
+    /* Light purple/reddish hint */
+    border-radius: 0;
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: none;
+}
+
+.minimal-form .form-control:focus,
+.minimal-form .form-select:focus {
+    border-bottom-color: var(--primary-color);
+    box-shadow: none;
+}
+
+.minimal-form label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.2rem;
+}
+
+.minimal-btn-primary {
+    background-color: #198754;
+    /* Green like in the reference */
+    border: none;
+    border-radius: 4px;
+    padding: 8px 24px;
+    color: #fff;
+}
+
+.minimal-btn-danger {
+    background-color: #dc3545;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 24px;
+    color: #fff;
+}
+
+/* Face Verification Box Placeholder */
+.face-verification-box {
+    width: 200px;
+    height: 150px;
+    background-color: #000;
+    margin: 0 auto 10px auto;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.face-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #d8b4e2;
+    /* light purple */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.face-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: red;
+    transform: rotate(-45deg);
+}
+
+/* Sidebar Dashboard Layout */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #fff;
+    color: var(--secondary-color);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    padding-top: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar .brand {
+    padding: 0 20px 20px 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: #555;
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+    transition: background 0.2s;
+    font-size: 0.95rem;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #f1f3f9;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: var(--bg-color);
+    overflow-y: auto;
+}
+
+/* Topbar in Dashboard */
+.topbar {
+    background: #fff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: -30px -30px 30px -30px;
+    /* offset main-content padding */
+}
+
+/* Cards & Tables */
+.card {
+    border: none;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    border-radius: 0.35rem;
+}
+
+.card-header {
+    background-color: #f8f9fc;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table th {
+    background-color: #f8f9fa;
+    color: #444;
+    font-weight: 600;
+}
+
+/* Landing Page Sections */
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light-purple {
+    background-color: #fdfafc;
+}
